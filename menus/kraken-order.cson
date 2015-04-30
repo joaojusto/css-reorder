@@ -1,0 +1,21 @@
+'context-menu':
+  'atom-text-editor': [
+    {
+      'label': 'Release the kraken'
+      'command': 'kraken:release'
+    }
+  ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'Kraken'
+      'submenu': [
+        {
+          'label': 'Release'
+          'command': 'kraken:release'
+        }
+      ]
+    ]
+  }
+]

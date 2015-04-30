@@ -1,0 +1,60 @@
+$discussion-item-triangle-size: 40px
+
+.Discussion
+  position: relative
+  display: flex
+  flex-direction: column
+  min-height: 62px
+  background-color: theme-palette(neutral, white)
+  cursor: pointer
+  padding-right: $discussion-item-triangle-size
+
+.Discussion-link
+  text-decoration: none
+
+.Discussion-title
+  @include beta
+  flex-grow: 1
+  color: theme-palette(primary, dark)
+  font-weight: bold
+
+.Discussion-subtitle
+  @include gamma
+  flex-grow: 1
+  color: theme-palette(primary)
+
+.Discussion-commentsCount
+  @include delta
+  position: absolute
+  bottom: 0
+  right: 0
+  z-index: 55
+  height: 17px
+  padding-right: 5px
+  color: theme-palette(neutral, white)
+  text-align: right
+
+.Discussion-commentsCount:before
+  content: ''
+  position: absolute
+  right: 0
+  bottom: 0
+  z-index: -1
+  width: 0
+  height: 0
+  border-style: solid
+  border-width: 0 0 $discussion-item-triangle-size $discussion-item-triangle-size
+  border-color: transparent
+
+.Discussion.Discussion--watching,
+.Discussion.Discussion--watched
+  .Discussion-commentsCount:before
+    border-bottom-color: theme-palette(primary)
+
+.Discussion.Discussion--unwatched
+  .Discussion-commentsCount:before
+    border-bottom-color: theme-palette(accent-secondary)
+
+.Discussion.Discussion--unread
+  .Discussion-commentsCount:before
+    border-bottom-color: theme-palette(accent-primary)
